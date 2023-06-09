@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="/">Interview</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interview">Start Interview</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container d-flex flex-column align-items-center">
+        <h1>Question {{ question_data['id'] }}</h1>
+        <form id="questionForm" method="POST">
+            <div class="form-group">
+                <label for="answer" class="mt-5">Interview Question:</label>
+                <h6 id="interviewQuestion">
+                    <ol>
+                        {% for question in question_data['questions'] %}
+                        <li>{{ question['questionText'] }}</li>
+                        {% endfor %}
+                    </ol>
+                </h6>
+                <input type="hidden" id="videoData" name="videoData">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="startRecording">Start Recording</button>
+                <button type="button" class="btn btn-danger d-none" id="stopRecording">Stop Recording</button>
+                <button type="button" class="btn btn-info d-none" id="previewRecording">Preview Recording</button>
+                <button type="button" class="btn btn-secondary d-none" id="redoRecording">Redo Recording</button>
+                <button type="button" class="btn btn-warning d-none" id="cancelRecording">Cancel Recording</button>
+                <button type="button" class="btn btn-primary d-none" id="nextQuestion">Next Question</button>
+            </div>
+            <div class="form-group d-flex justify-content-between">
+                {% if question_data['id'] > 1 %}
+                <a href="/question/{{ question_data['id'] - 1 }}" class="btn btn-primary">Previous Question</a>
+                {% endif %}
+                {% if question_data['id'] > 4 %}
+                <a href="/recording_urls" class="btn btn-success">Submit Recorded Answers</a>
+                {% endif %}
+                {% if question_data['id'] < question_count %}
+                <a href="/question/{{ question_data['id'] + 1 }}" class="btn btn-primary">Next Question</a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

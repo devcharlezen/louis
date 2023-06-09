@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Filter and Voice Changer</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/interview.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="/">Interview</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/interview">Start Interview</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Video Filter and Voice Changer</h1>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="filter">Select Filter:</label>
+                <select class="form-control" id="filter" name="filter">
+                    <option value="grayscale">Grayscale</option>
+                    <option value="negative">Negative</option>
+                    <option value="cartoon">Cartoon</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="voice">Select Voice:</label>
+                <select class="form-control" id="voice" name="voice">
+                    <option value="1">Voice 1</option>
+                    <option value="2">Voice 2</option>
+                    <option value="3">Voice 3</option>
+                    <!-- Add more voice options as desired -->
+                </select>
+            </div>
+            <div class="form-group">
+                <a href="/question/1" class="btn btn-primary">Start</a>
+            </div>
+        </form>
+    </div>
+       <!-- Bootstrap JavaScript -->
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+       <!-- Custom JavaScript -->
+       <script src="../static/js/scripts.js"></script>
+</body>
+
+</html>
